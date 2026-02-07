@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day Mansi 🌹</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coral: #FF6B6B;
+            --peach: #FFB4A2;
+            --mint: #95E1D3;
+            --lavender: #C8B6FF;
+            --sunshine: #FFD93D;
+            --white: #FFFFFF;
+            --light-bg: #FFF9F5;
+            --text-dark: #2D3436;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #FFF9F5 0%, #FFE8E8 50%, #F5F0FF 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated confetti background */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            animation: confettiFall linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        /* Floating decorative elements */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .deco-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--coral);
+            top: -200px;
+            right: -100px;
+        }
+
+        .deco-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--lavender);
+            bottom: -150px;
+            left: -100px;
+        }
+
+        .deco-3 {
+            width: 200px;
+            height: 200px;
+            background: var(--mint);
+            top: 50%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--coral), var(--peach));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(3rem, 12vw, 6rem);
+            background: linear-gradient(135deg, var(--coral), var(--lavender), var(--mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInScale 1.2s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Rose Garden */
+        .rose-garden {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 30px;
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 40px;
+            animation: fadeInUp 1.2s ease-out 0.9s both;
+        }
+
+        .rose-card {
+            position: relative;
+            aspect-ratio: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 15px 40px var(--shadow);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rose-card:hover {
+            transform: translateY(-15px) rotate(5deg) scale(1.1);
+            box-shadow: 0 25px 60px rgba(255, 107, 107, 0.3);
+        }
+
+        .rose-emoji {
+            font-size: 4rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .rose-card:nth-child(1) { background: linear-gradient(135deg, #FFE8E8, white); }
+        .rose-card:nth-child(2) { background: linear-gradient(135deg, #FFE8F5, white); }
+        .rose-card:nth-child(3) { background: linear-gradient(135deg, #F0E8FF, white); }
+        .rose-card:nth-child(4) { background: linear-gradient(135deg, #E8F8FF, white); }
+        .rose-card:nth-child(5) { background: linear-gradient(135deg, #E8FFF0, white); }
+
+        /* Message Cards */
+        .message-section {
+            max-width: 900px;
+            margin: 80px auto;
+            position: relative;
+        }
+
+        .message-card {
+            background: white;
+            border-radius: 30px;
+            padding: 60px 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .message-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--coral), var(--lavender));
+        }
+
+        .message-card h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--coral);
+            margin-bottom: 30px;
+        }
+
+        .message-card p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.9;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+
+        /* Qualities Grid */
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .quality-card {
+            background: linear-gradient(135deg, var(--white), var(--light-bg));
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .quality-card:hover {
+            border-color: var(--coral);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 107, 0.2);
+        }
+
+        .quality-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        .quality-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--coral);
+            margin-bottom: 15px;
+        }
+
+        .quality-text {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Interactive Button */
+        .surprise-section {
+            text-align: center;
+            margin: 100px 0;
+        }
+
+        .surprise-btn {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 25px 60px;
+            background: linear-gradient(135deg, var(--coral), var(--peach));
+            color: white;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .surprise-btn::after {
+            content: '✨';
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .surprise-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(255, 107, 107, 0.6);
+        }
+
+        .surprise-btn:hover::after {
+            opacity: 1;
+            animation: sparkle 1s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 52, 54, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #FFE8E8, #F0E8FF);
+            max-width: 600px;
+            width: 90%;
+            padding: 60px 40px;
+            border-radius: 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            animation: modalPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes modalPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: var(--coral);
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.3s ease;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        .modal-emoji {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.05);
+            }
+        }
+
+        .modal-content h3 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--coral);
+            margin-bottom: 25px;
+        }
+
+        .modal-content p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        /* Signature */
+        .signature {
+            text-align: right;
+            margin-top: 50px;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+
+        .signature-name {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--coral), var(--lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: normal;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .message-card {
+                padding: 40px 30px;
+            }
+
+            .qualities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rose-garden {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--coral);
+            color: white;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative circles -->
+    <div class="deco-circle deco-1"></div>
+    <div class="deco-circle deco-2"></div>
+    <div class="deco-circle deco-3"></div>
+
+    <!-- Confetti container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="badge">Rose Day Special 2025</div>
+            <h1>Happy Rose Day</h1>
+            <p class="hero-subtitle">To my amazing sister Mansi 🌸</p>
+            
+            <!-- Rose Garden -->
+            <div class="rose-garden">
+                <div class="rose-card"><div class="rose-emoji">🌹</div></div>
+                <div class="rose-card"><div class="rose-emoji">🌺</div></div>
+                <div class="rose-card"><div class="rose-emoji">🌸</div></div>
+                <div class="rose-card"><div class="rose-emoji">🌼</div></div>
+                <div class="rose-card"><div class="rose-emoji">🌻</div></div>
+            </div>
+        </section>
+
+        <!-- Message Section -->
+        <section class="message-section">
+            <div class="message-card">
+                <h2>Dear Mansi,</h2>
+                <p>
+                    On this special Rose Day, I want you to know how grateful I am to have you as my sister. You're not just family—you're my best friend, my support system, and one of the most incredible people I know.
+                </p>
+                <p>
+                    Your intelligence and caring nature inspire me every single day. The way you handle every situation with grace and wisdom is truly remarkable. You have this amazing ability to make everyone around you feel valued and understood.
+                </p>
+                <p>
+                    Thank you for always being there, for your endless support, and for being the wonderful person you are. These roses represent all the love, respect, and appreciation I have for you.
+                </p>
+            </div>
+
+            <!-- Qualities Grid -->
+            <div class="qualities-grid">
+                <div class="quality-card">
+                    <div class="quality-icon">🧠</div>
+                    <div class="quality-title">Super Smart</div>
+                    <p class="quality-text">Your intelligence and quick thinking never cease to amaze me. You make the complex look simple!</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon">❤️</div>
+                    <div class="quality-title">So Caring</div>
+                    <p class="quality-text">Your kindness and compassion touch everyone's hearts. You always know how to make people feel better.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon">⭐</div>
+                    <div class="quality-title">Simply Amazing</div>
+                    <p class="quality-text">Everything you do, you do with excellence. You're a true inspiration and role model!</p>
+                </div>
+            </div>
+
+            <div class="message-card">
+                <p>
+                    You deserve all the happiness in the world, Mansi. Keep shining bright and being the amazing person you are. I'm so proud to call you my sister!
+                </p>
+                <div class="signature">
+                    <div>With love and pride,</div>
+                    <div class="signature-name">Your Brother, Manas</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Surprise Button -->
+        <div class="surprise-section">
+            <button class="surprise-btn" onclick="openModal()">
+                Click for a Surprise! 🎁
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            Made with 💖 by Manas for the best sister ever!<br>
+            Rose Day 2025
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-emoji">🌹✨🌺</div>
+            <h3>You're the Best!</h3>
+            <p>
+                Having you as my sister is one of the greatest blessings of my life.
+            </p>
+            <p>
+                Your smartness, your caring heart, and your amazing personality make you truly one-of-a-kind!
+            </p>
+            <p style="font-family: 'Pacifico', cursive; font-size: 2rem; color: var(--coral); margin-top: 30px;">
+                Love you always, Mansi! 💕
+            </p>
+            <div class="modal-emoji">🌹✨🌺</div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated confetti
+        function createConfetti() {
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#FF6B6B', '#FFB4A2', '#95E1D3', '#C8B6FF', '#FFD93D'];
+            const shapes = ['●', '■', '▲', '★'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                confetti.style.animationDuration = (Math.random() * 8 + 8) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(confetti);
+            }
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'modal') {
+                document.getElementById('modal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Add click animation to rose cards
+        document.querySelectorAll('.rose-card').forEach((card, index) => {
+            card.addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 10);
+                
+                const emoji = this.querySelector('.rose-emoji');
+                emoji.style.transform = 'scale(1.5) rotate(360deg)';
+                setTimeout(() => {
+                    emoji.style.transform = '';
+                }, 600);
+            });
+        });
+
+        // Initialize
+        window.addEventListener('load', () => {
+            createConfetti();
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
